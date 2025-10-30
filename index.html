@@ -1,0 +1,152 @@
+&lt;html lang="hi"&gt;
+&lt;head&gt;
+&lt;meta charset="UTF-8"&gt;
+&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+&lt;title&gt;Automa Workflow Dashboard&lt;/title&gt;
+&lt;style&gt;
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+min-height: 100vh;
+padding: 20px;
+}
+.container {
+max-width: 800px;
+margin: 0 auto;
+background: white;
+border-radius: 15px;
+padding: 30px;
+box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+}
+h1 { color: #667eea; text-align: center; margin-bottom: 10px; }
+.subtitle { text-align: center; color: #666; margin-bottom: 30px; font-size: 14px;
+.status-card {
+background: #f8f9fa;
+border-left: 4px solid #667eea;
+padding: 20px;
+margin-bottom: 20px;
+border-radius: 5px;
+}
+.status-card h3 { color: #333; margin-bottom: 10px; }
+.status-value { font-size: 24px; font-weight: bold; color: #667eea; }
+.button-group { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin: 3
+button {
+padding: 15px 30px;
+font-size: 16px;
+border: none;
+border-radius: 8px;
+cursor: pointer;
+transition: all 0.3s;
+font-weight: bold;
+}
+.trigger-btn { background: #667eea; color: white; }
+.trigger-btn:hover {
+background: #5568d3;
+transform: translateY(-2px);
+box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+.reset-btn { background: #e74c3c; color: white; }
+.reset-btn:hover {
+background: #c0392b;
+transform: translateY(-2px);
+box-shadow: 0 5px 15px rgba(231, 76, 60, 0.4);
+}
+.instructions {
+background: #e8f4f8;
+padding: 20px;
+border-radius: 8px;
+margin-top: 20px;
+}
+.instructions h3 { color: #2c3e50; margin-bottom: 15px; }
+.instructions ol { margin-left: 20px; line-height: 1.8; color: #34495e; }
+.instructions li { margin-bottom: 10px; }
+.alert {
+padding: 15px;
+border-radius: 8px;
+margin-top: 20px;
+display: none;
+}
+.alert.success {
+background: #d4edda;
+color: #155724;
+border: 1px solid #c3e6cb;
+}
+.links {
+margin-top: 30px;
+padding: 20px;
+background: #fff3cd;
+border-radius: 8px;}
+.links h3 { color: #856404; margin-bottom: 10px; }
+.links a { color: #667eea; text-decoration: none; font-weight: bold; }
+.links a:hover { text-decoration: underline; }
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+<div>
+<h1>🤖 Automa Workflow Dashboard</h1>
+<p>Mobile से Desktop Automation Control करें</p>
+<div>
+<h3>📊 Trigger Status</h3>
+<div>OFF</div>
+&lt;small style="color: #666;"&gt;Last Updated: <span>Never</span>&lt;/small&gt
+</div><div>
+<h3>⚙️ Workflow Status</h3>
+<div>Waiting...</div>
+</div>
+<div>
+&lt;button class="trigger-btn" onclick="triggerWorkflow()"&gt;
+🚀 Workflow Trigger करें
+&lt;/button&gt;
+&lt;button class="reset-btn" onclick="resetTrigger()"&gt;
+🔄 Reset करें
+&lt;/button&gt;
+</div>
+<div></div>
+<div>
+<h3>📝 कैसे का म करता है?</h3>
+<ol>
+<li><strong>Mobile से:</strong> इस page को open करें और "Workflow Trigger करें" b
+<li><strong>Google Sheets:</strong> Trigger cell automatically update हो जा एगी
+<li><strong>Desktop Automa:</strong> Interval trigger हर मि नट check करेगा </li>
+<li><strong>Condition Check:</strong> अगर trigger = "YES" तो workflow execut
+<li><strong>Auto Reset:</strong> Workflow complete हो ने के बा द trigger cell res
+</ol>
+</div>
+<div>
+<h3>🔗 Important Links</h3>
+<p>📊 <a href="YOUR_GOOGLE_SHEET_URL">Google Sheet खो लें</a></p>
+<p>📖 <a href="https://automa-docs-old.vercel.app/">Automa Documentation</a></p>
+</div>
+</div>
+&lt;script&gt;
+function triggerWorkflow() {
+const alertBox = document.getElementById('alertBox');
+const triggerStatus = document.getElementById('triggerStatus');
+const lastUpdate = document.getElementById('lastUpdate');
+const workflowStatus = document.getElementById('workflowStatus');
+triggerStatus.textContent = 'ON';
+triggerStatus.style.color = '#27ae60';
+lastUpdate.textContent = new Date().toLocaleString('hi-IN');
+workflowStatus.textContent = 'Triggered! Waiting for Automa...';
+workflowStatus.style.color = '#f39c12';
+alertBox.className = 'alert success';
+alertBox.textContent = '✅ Workflow triggered! Desktop Automa will execute with
+alertBox.style.display = 'block';
+setTimeout(() =&gt; { alertBox.style.display = 'none'; }, 5000);
+}
+function resetTrigger() {
+const alertBox = document.getElementById('alertBox');
+const triggerStatus = document.getElementById('triggerStatus');
+const workflowStatus = document.getElementById('workflowStatus');
+triggerStatus.textContent = 'OFF';
+triggerStatus.style.color = '#e74c3c';
+workflowStatus.textContent = 'Waiting...';
+workflowStatus.style.color = '#667eea';
+alertBox.className = 'alert success';alertBox.textContent = '🔄 Trigger reset successfully!';
+alertBox.style.display = 'block';
+setTimeout(() =&gt; { alertBox.style.display = 'none'; }, 3000);
+}
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
