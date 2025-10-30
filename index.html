@@ -76,7 +76,8 @@ border: 1px solid #c3e6cb;
 margin-top: 30px;
 padding: 20px;
 background: #fff3cd;
-border-radius: 8px;}
+border-radius: 8px;
+}
 .links h3 { color: #856404; margin-bottom: 10px; }
 .links a { color: #667eea; text-decoration: none; font-weight: bold; }
 .links a:hover { text-decoration: underline; }
@@ -90,7 +91,8 @@ border-radius: 8px;}
 <h3>📊 Trigger Status</h3>
 <div>OFF</div>
 &lt;small style="color: #666;"&gt;Last Updated: <span>Never</span>&lt;/small&gt
-</div><div>
+</div>
+<div>
 <h3>⚙️ Workflow Status</h3>
 <div>Waiting...</div>
 </div>
@@ -115,7 +117,7 @@ border-radius: 8px;}
 </div>
 <div>
 <h3>🔗 Important Links</h3>
-<p>📊 <a href="YOUR_GOOGLE_SHEET_URL">Google Sheet खो लें</a></p>
+<p>📊 <a href="https://docs.google.com/spreadsheets/d/179nsb7VcX86_gJqz10p6ZUz_qU23ROEfJyGNuJokHuw/edit">Google Sheet</a></p>
 <p>📖 <a href="https://automa-docs-old.vercel.app/">Automa Documentation</a></p>
 </div>
 </div>
@@ -143,7 +145,8 @@ triggerStatus.textContent = 'OFF';
 triggerStatus.style.color = '#e74c3c';
 workflowStatus.textContent = 'Waiting...';
 workflowStatus.style.color = '#667eea';
-alertBox.className = 'alert success';alertBox.textContent = '🔄 Trigger reset successfully!';
+alertBox.className = 'alert success';
+alertBox.textContent = '🔄 Trigger reset successfully!';
 alertBox.style.display = 'block';
 setTimeout(() =&gt; { alertBox.style.display = 'none'; }, 3000);
 }
